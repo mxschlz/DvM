@@ -9,9 +9,9 @@ import copy
 import numpy as np
 import pandas as pd
 
-from typing import Optional, Generic, Union, Tuple, Any
-from support.support import exclude_eye, match_epochs_times, trial_exclusion
-from IPython import embed
+from typing import Tuple
+from support.support import exclude_eye, match_epochs_times, trial_exclusion, filter_eye
+
 
 def blockPrinting(func):
     def func_wrapper(*args, **kwargs):
@@ -377,3 +377,11 @@ class FolderStructure(object):
         ctfs = [pickle.load(open(file, 'rb')) for file in files]
 
         return ctfs
+
+
+if __name__ == "__main__":
+    root = "/home/max/Insync/schulz.max5@gmail.com/GoogleDrive/PhD/data/SPACEPRIME"
+    ext = [""]
+    fs = FolderStructure()
+    fname = "task-spaceprime"
+    pathname = fs.folder_tracker(fname=fname)
